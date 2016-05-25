@@ -6,7 +6,7 @@ from shlex import quote
 
 
 class PathBookmark:
-    USE_KEY = 'use_count'
+    USE_KEY = 'usage'
     PATH_KEY = 'path'
 
     def __init__(self, db_file):

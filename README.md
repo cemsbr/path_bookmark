@@ -16,7 +16,7 @@ and the code is short. Usage and installation instruction follows.
 ```p``` for help and path list:
 ```
 PathBookmark Help
-=============
+=================
 (omitted)
 
 Paths saved
@@ -56,7 +56,7 @@ PathBookmark: ls /path/to/my/long/project/directory
 LICENSE  my_paths.json  PathBookmark.py  pb.py  pb.sh  README.md
 ```
 
-- ```pcd``` is a shortcut to change dir (equivalent to ```he cd```):
+- ```pcd``` is a shortcut to change dir (equivalent to ```pe cd```):
 ```bash
 ~$ pcd =project  # (tab completion)
 PathBookmark: cd /path/to/my/long/project/directory

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import sys
+from shlex import quote
 from pathbookmark import PathBookmark
 
 
@@ -42,8 +43,7 @@ if __name__ == '__main__':
         pb.save()
     elif cmd == 'replace':
         sh = pb.replace(sys.argv[2:])
-        # TODO escape
-        print("echo 'PathBookmark: {}'; {}".format(sh, sh))
+        print("echo PathBookmark: {}; {}".format(quote(sh), sh))
     elif cmd == 'keys':
         print(' '.join(pb.keys()))
     else:
