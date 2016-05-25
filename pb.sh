@@ -1,33 +1,33 @@
 #!/bin/bash
 
-alias h='~/.path_hash/ph.py'
-alias hl='h ls'
-alias ha='h add'
-alias hr='h rm'
-alias hcd='he cd'
+alias p='~/.path_bookmark/pb.py'
+alias pl='p ls'
+alias pa='p add'
+alias pr='p rm'
+alias pcd='pe cd'
 
-function he() {
-    cmd=$(h exec "$@")
+function pe() {
+    cmd=$(p replace "$@")
     eval "$cmd"
 }
 
-_ph() {
+_pb() {
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
-    opts=$(h keys)
+    opts=$(p keys)
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
 }
 
-_ph_eq() {
+_pb_eq() {
     local cur prev opts
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     _get_comp_words_by_ref -n = cur
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     if [ "${cur::1}" == '=' ]; then
-      opts=$(h keys)
+      opts=$(p keys)
       COMPREPLY=( $(compgen -W "${opts}" -- ${cur:1}) )
     else
       COMPREPLY=( $(compgen -f  -- "${COMP_WORDS[${COMP_CWORD}]}" ) )
@@ -35,6 +35,6 @@ _ph_eq() {
     return 0
 }
 
-complete -F _ph hr
-complete -F _ph_eq he
-complete -F _ph_eq hcd
+complete -F _pb pr
+complete -F _pb_eq pe
+complete -F _pb_eq pcd
